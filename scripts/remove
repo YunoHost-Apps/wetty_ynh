@@ -16,11 +16,9 @@ ynh_script_progression --message="Loading installation settings..." --time --wei
 
 app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-port=$(ynh_app_setting_get --app=$app --key=port)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-db_user=$db_name
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+domain=$(ynh_app_setting_get --app="$app" --key=domain)
+port=$(ynh_app_setting_get --app="$app" --key=port)
+final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 
 #=================================================
 # STANDARD REMOVE
@@ -29,10 +27,9 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 #=================================================
 
 # Remove the service from the list of services known by Yunohost (added from `yunohost service add`)
-if ynh_exec_warn_less yunohost service status $app >/dev/null
-then
+if ynh_exec_warn_less yunohost service status "$app" >/dev/null; then
 	ynh_script_progression --message="Removing $app service integration..." --time --weight=1
-	yunohost service remove $app
+	yunohost service remove "$app"
 fi
 
 #=================================================
@@ -42,14 +39,6 @@ ynh_script_progression --message="Stopping and removing the systemd service..." 
 
 # Remove the dedicated systemd config
 ynh_remove_systemd_config
-
-#=================================================
-# REMOVE THE MYSQL DATABASE
-#=================================================
-ynh_script_progression --message="Removing the MySQL database..." --time --weight=1
-
-# Remove a database if it exists, along with the associated user
-ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # REMOVE DEPENDENCIES
@@ -62,7 +51,7 @@ ynh_remove_app_dependencies
 #=================================================
 # REMOVE APP MAIN DIR
 #=================================================
-ynh_script_progression --message="Removing app main directory..." --time --weight=1
+ynh_script_progression --message="Removing app main directory..." --time --weight=3
 
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
@@ -76,14 +65,6 @@ ynh_script_progression --message="Removing nginx web server configuration..." --
 ynh_remove_nginx_config
 
 #=================================================
-# REMOVE PHP-FPM CONFIGURATION
-#=================================================
-ynh_script_progression --message="Removing php-fpm configuration..." --time --weight=1
-
-# Remove the dedicated php-fpm config
-ynh_remove_fpm_config
-
-#=================================================
 # REMOVE LOGROTATE CONFIGURATION
 #=================================================
 ynh_script_progression --message="Removing logrotate configuration..." --time --weight=1
@@ -92,22 +73,12 @@ ynh_script_progression --message="Removing logrotate configuration..." --time --
 ynh_remove_logrotate
 
 #=================================================
-# CLOSE A PORT
-#=================================================
-
-if yunohost firewall list | grep -q "\- $port$"
-then
-	ynh_script_progression --message="Closing port $port..." --time --weight=1
-	ynh_exec_warn_less yunohost firewall disallow TCP $port
-fi
-
-#=================================================
 # REMOVE FAIL2BAN CONFIGURATION
 #=================================================
-ynh_script_progression --message="Removing fail2ban configuration..." --time --weight=1
+# ynh_script_progression --message="Removing fail2ban configuration..." --time --weight=1
 
-# Remove the dedicated fail2ban config
-ynh_remove_fail2ban_config
+# # Remove the dedicated fail2ban config
+# ynh_remove_fail2ban_config
 
 #=================================================
 # SPECIFIC REMOVE
@@ -115,14 +86,14 @@ ynh_remove_fail2ban_config
 # REMOVE VARIOUS FILES
 #=================================================
 
-# Remove a cron file
-ynh_secure_remove --file="/etc/cron.d/$app"
+# # Remove a cron file
+# ynh_secure_remove --file="/etc/cron.d/$app"
 
-# Remove a directory securely
-ynh_secure_remove --file="/etc/$app/"
+# # Remove a directory securely
+# ynh_secure_remove --file="/etc/$app/"
 
-# Remove the log files
-ynh_secure_remove --file="/var/log/$app/"
+# # Remove the log files
+# ynh_secure_remove --file="/var/log/$app/"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -132,7 +103,7 @@ ynh_secure_remove --file="/var/log/$app/"
 ynh_script_progression --message="Removing the dedicated system user..." --time --weight=1
 
 # Delete a system user
-ynh_system_user_delete --username=$app
+ynh_system_user_delete --username="$app"
 
 #=================================================
 # END OF SCRIPT

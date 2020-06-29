@@ -1,5 +1,5 @@
-SOURCE_URL=url of app's source
-SOURCE_SUM=sha256 checksum
+SOURCE_URL=https://github.com/butlerx/wetty/archive/v1.3.0.tar.gz
+SOURCE_SUM=d78474334f358de44ce4a845bf3eea3add2aed5c91fd9150f8478d6091e26866
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
