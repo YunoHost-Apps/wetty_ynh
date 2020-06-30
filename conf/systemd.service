@@ -13,8 +13,7 @@ ExecStart=__YARN_BIN_DIR__/wetty \
     --host 127.0.0.1 \
     --port __PORT__ \
     --base __PATH_URL__/ \
-    --sshhost __DOMAIN__ \
-    >> /var/log/__APP__/__APP__.log 2>&1
+    --sshhost __DOMAIN__
 
 [Install]
 WantedBy=multi-user.target

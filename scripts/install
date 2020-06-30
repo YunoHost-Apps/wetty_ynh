@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #=================================================
 # GENERIC START
@@ -116,30 +116,10 @@ popd || return 1
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
+ynh_script_progression --message="Configuring the systemd service..." --weight=1
 
 # Create a dedicated systemd config
 ynh_add_systemd_config --others_var="domain port path_url ynh_node_load_PATH yarn_bin_dir"
-
-#=================================================
-# MODIFY A CONFIG FILE
-#=================================================
-
-### `ynh_replace_string` is used to replace a string in a file.
-### (It's compatible with sed regular expressions syntax)
-
-# ynh_replace_string --match_string="match_string" --replace_string="replace_string" --target_file="$final_path/CONFIG_FILE"
-
-#=================================================
-# STORE THE CONFIG FILE CHECKSUM
-#=================================================
-
-### `ynh_store_file_checksum` is used to store the checksum of a file.
-### That way, during the upgrade script, by using `ynh_backup_if_checksum_is_different`,
-### you can make a backup of this file before modifying it again if the admin had modified it.
-
-# Calculate and store the config file checksum into the app settings
-# ynh_store_file_checksum --file="$final_path/CONFIG_FILE"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -147,25 +127,13 @@ ynh_add_systemd_config --others_var="domain port path_url ynh_node_load_PATH yar
 # SECURE FILES AND DIRECTORIES
 #=================================================
 
-### For security reason, any app should set the permissions to root: before anything else.
-### Then, if write authorization is needed, any access should be given only to directories
-### that really need such authorization.
-
 # Set permissions to app files
-# chown -R root: "$final_path"
+chown -R root: "$final_path"
 
 #=================================================
 # SETUP LOGROTATE
 #=================================================
 ynh_script_progression --message="Configuring log rotation..." --weight=1
-
-### `ynh_use_logrotate` is used to configure a logrotate configuration for the logs of this app.
-### Use this helper only if there is effectively a log file for this app.
-### If you're not using this helper:
-###        - Remove the section "BACKUP LOGROTATE" in the backup script
-###        - Remove also the section "REMOVE LOGROTATE CONFIGURATION" in the remove script
-###        - As well as the section "RESTORE THE LOGROTATE CONFIGURATION" in the restore script
-###        - And the section "SETUP LOGROTATE" in the upgrade script
 
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
@@ -175,15 +143,13 @@ ynh_use_logrotate
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "$app" --description "A short description of the app" --log "/var/log/$app/$app.log"
-
+yunohost service add "$app" --description "Wetty Web Terminal service" --log "/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Starting the systemd service..." --weight=1
 
-# Start a systemd service
 ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
@@ -191,7 +157,7 @@ ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$
 #=================================================
 # ynh_script_progression --message="Configuring fail2ban..." --weight=1
 
-# # Create a dedicated fail2ban config
+# Create a dedicated fail2ban config
 # ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
 
 #=================================================
