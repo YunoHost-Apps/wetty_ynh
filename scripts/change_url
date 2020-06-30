@@ -128,6 +128,7 @@ chown -R root: "$final_path"
 ynh_script_progression --message="Configuring the systemd service..." --weight=1
 
 domain="$new_domain"
+path_url="$new_path"
 
 # Create a dedicated systemd config
 ynh_backup_if_checksum_is_different --file="/etc/systemd/system/$app.service"
