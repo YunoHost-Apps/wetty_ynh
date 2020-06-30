@@ -110,7 +110,7 @@ chown -R "$app":"$app" "$final_path"
 pushd "$final_path" || return 1
     ynh_use_nodejs
     sudo -u "$app" env "$ynh_node_load_PATH" yarn global add wetty
-    yarn_bin_dir="$(sudo -u "$app" yarn global bin)"
+    yarn_bin_dir="$(sudo -u "$app" env "$ynh_node_load_PATH" yarn global bin)"
 popd || return 1
 
 #=================================================
