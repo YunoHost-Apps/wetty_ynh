@@ -28,7 +28,6 @@ ynh_script_progression --message="Loading installation settings..." --time --wei
 
 # Needed for helper "ynh_add_nginx_config"
 final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
-is_public=$(ynh_app_setting_get --app="$app" --key=is_public)
 final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 port=$(ynh_app_setting_get --app="$app" --key=port)
 
@@ -110,7 +109,7 @@ ynh_script_progression --message="Rebuilding yarn dependencies..." --weight=2
 chown -R "$app":"$app" "$final_path"
 
 pushd "$final_path" || return 1
-    ynh_use_nodejs
+    ynh_use_nodejs ; set "${ynh_node_load_PATH:?}"
     sudo -u "$app" env "$ynh_node_load_PATH" yarn global add wetty
     yarn_bin_dir="$(sudo -u "$app" env "$ynh_node_load_PATH" yarn global bin)"
 popd || return 1
@@ -133,6 +132,7 @@ path_url="$new_path"
 # Create a dedicated systemd config
 ynh_backup_if_checksum_is_different --file="/etc/systemd/system/$app.service"
 ynh_remove_systemd_config
+test -n "${domain}${port}${path_url}${ynh_node_load_PATH}${yarn_bin_dir}"
 ynh_add_systemd_config --others_var="domain port path_url ynh_node_load_PATH yarn_bin_dir"
 ynh_store_file_checksum --file="/etc/systemd/system/$app.service"
 
