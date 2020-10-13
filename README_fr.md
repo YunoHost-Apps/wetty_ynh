@@ -9,7 +9,7 @@
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-Terminal dans un navigateur par http/https. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
+Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
 **Version incluse :** 2.0.2
 
@@ -20,7 +20,7 @@ Terminal dans un navigateur par http/https. (Alternative à Ajaxterm/Anyterm, ma
 ## Configuration
 
 Il y a peu de configuration dans Wetty :
-* La configuration de démarrage (port d'écoute, chemin d'url, hôte ssh) est contenue dans le fichier de service SystemD
+* La configuration de démarrage (port d'écoute, chemin d'URL, hôte SSH) est contenue dans le fichier de service systemd
 * La configuration de l'interface utilisateur se fait via l'interface graphique Web elle-même.
 
 ## Documentation
@@ -32,10 +32,8 @@ Il y a peu de configuration dans Wetty :
 
 #### Support multi-utilisateur
 
-* L'authentification LDAP et HTTP est-elle prise en charge ?
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? 
-
-La notion de multi-utilisateur ne s'applique pas. Vous pouvez vous connecter en tant que n'importe quel utilisateur *système* qui autorise la connexion SSH locale.
+* L'authentification LDAP et HTTP est-elle prise en charge ? **Non**
+* L'application peut-elle être utilisée par plusieurs utilisateurs ? La notion de multi-utilisateur ne s'applique pas. Vous pouvez vous connecter en tant que n'importe quel utilisateur *système* qui autorise la connexion SSH locale.
 
 Vous pouvez spécifier lors de l'installation si les utilisateurs doivent d'abord se connecter à YunoHost pour pouvoir accéder à Wetty, ou si les visiteurs peuvent également y accéder.
 

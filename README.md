@@ -9,7 +9,7 @@
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-Terminal in browser over http/https. (Ajaxterm/Anyterm alternative, but much better)
+Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative, but much better)
 
 **Shipped version:** 2.0.2
 
@@ -20,8 +20,8 @@ Terminal in browser over http/https. (Ajaxterm/Anyterm alternative, but much bet
 ## Configuration
 
 There is few configuration in Wetty:
-* Startup config (listen port, URL path, ssh host) is contained in the SystemD service file
-* User interface configuration is done through the web gui itself.
+* Startup config (listen port, URL path, SSH host) is contained in the systemd service file
+* User interface configuration is done through the web GUI itself.
 
 ## Documentation
 
