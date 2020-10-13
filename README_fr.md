@@ -15,7 +15,7 @@ Terminal dans un navigateur par http/https. (Alternative à Ajaxterm/Anyterm, ma
 
 ## Captures d'écran
 
-![](https://raw.githubusercontent.com/butlerx/wetty/master/docs/terminal.png)
+![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.2/docs/terminal.png)
 
 ## Configuration
 

@@ -15,7 +15,7 @@ Terminal in browser over http/https. (Ajaxterm/Anyterm alternative, but much bet
 
 ## Screenshots
 
-![](https://raw.githubusercontent.com/butlerx/wetty/master/docs/terminal.png)
+![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.2/docs/terminal.png)
 
 ## Configuration
 
