@@ -1,27 +1,27 @@
 # Wetty pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
-[![Installer wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=wetty)
+[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=wetty)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer wetty rapidement et simplement sur un serveur YunoHost.
+> *Ce package vous permet d'installer Wetty rapidement et simplement sur un serveur YunoHost.
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-Terminal dans un navigateur par http/https. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
+Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
-**Version incluse :** 1.3.0
+**Version incluse :** 2.0.2
 
 ## Captures d'écran
 
-![](https://raw.githubusercontent.com/butlerx/wetty/master/docs/terminal.png)
+![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.2/docs/terminal.png)
 
 ## Configuration
 
-There is few configuration in Wetty :
-* Startup config (listen port, url path, ssh host) is contained in the SystemD service file
-* User interface configuration is done through the web gui itself.
+Il y a peu de configuration dans Wetty :
+* La configuration de démarrage (port d'écoute, chemin d'URL, hôte SSH) est contenue dans le fichier de service systemd
+* La configuration de l'interface utilisateur se fait via l'interface graphique Web elle-même.
 
 ## Documentation
 
@@ -32,12 +32,10 @@ There is few configuration in Wetty :
 
 #### Support multi-utilisateur
 
-* L'authentification LDAP et HTTP est-elle prise en charge ?
-* L'application peut-elle être utilisée par plusieurs utilisateurs ?
+* L'authentification LDAP et HTTP est-elle prise en charge ? **Non**
+* L'application peut-elle être utilisée par plusieurs utilisateurs ? La notion de multi-utilisateur ne s'applique pas. Vous pouvez vous connecter en tant que n'importe quel utilisateur *système* qui autorise la connexion SSH locale.
 
-Multi-user doesn't really mean anything. You can log as any *system* user that allows local SSH login.
-
-You can specify at install if users should log into Yunohost first to be able to access Wetty, or if visitors can access it too.
+Vous pouvez spécifier lors de l'installation si les utilisateurs doivent d'abord se connecter à YunoHost pour pouvoir accéder à Wetty, ou si les visiteurs peuvent également y accéder.
 
 #### Architectures supportées
 
@@ -56,10 +54,8 @@ You can specify at install if users should log into Yunohost first to be able to
 
 ---
 
-Informations pour les développeurs
-----------------
+## Informations pour les développeurs
 
-**Seulement si vous voulez utiliser une branche de test pour le codage, au lieu de fusionner directement dans la banche principale.**
 Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 Pour essayer la branche testing, procédez comme suit.

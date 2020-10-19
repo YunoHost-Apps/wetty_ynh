@@ -1,27 +1,27 @@
 # Wetty for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
-[![Install wetty with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=wetty)
+[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Install Wetty with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=wetty)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allows you to install wetty quickly and simply on a YunoHost server.
+> *This package allows you to install Wetty quickly and simply on a YunoHost server.
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-Terminal in browser over http/https. (Ajaxterm/Anyterm alternative, but much better)
+Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative, but much better)
 
-**Shipped version:** 1.3.0
+**Shipped version:** 2.0.2
 
 ## Screenshots
 
-![](https://raw.githubusercontent.com/butlerx/wetty/master/docs/terminal.png)
+![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.2/docs/terminal.png)
 
 ## Configuration
 
-There is few configuration in Wetty :
-* Startup config (listen port, url path, ssh host) is contained in the SystemD service file
-* User interface configuration is done through the web gui itself.
+There is few configuration in Wetty:
+* Startup config (listen port, URL path, SSH host) is contained in the systemd service file
+* User interface configuration is done through the web GUI itself.
 
 ## Documentation
 
@@ -34,7 +34,7 @@ There is few configuration in Wetty :
 
 Multi-user doesn't really mean anything. You can log as any *system* user that allows local SSH login.
 
-You can specify at install if users should log into Yunohost first to be able to access Wetty, or if visitors can access it too.
+You can specify at install if users should log into YunoHost first to be able to access Wetty, or if visitors can access it too.
 
 #### Supported architectures
 
@@ -53,10 +53,8 @@ You can specify at install if users should log into Yunohost first to be able to
 
 ---
 
-Developer info
-----------------
+## Developer info
 
-**Only if you want to use a testing branch for coding, instead of merging directly into master.**
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
@@ -65,7 +63,3 @@ sudo yunohost app install https://github.com/YunoHost-Apps/wetty_ynh/tree/testin
 or
 sudo yunohost app upgrade wetty -u https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
 ```
-
-# TODO
-- Add a `LICENSE` file for the package.
-- Edit `README_fr.md`.
