@@ -7,8 +7,8 @@ about: Create a report to help us debug, it would be nice to fill the template a
 **How to post a meaningful bug report**
 1. *Read this whole template first.*
 2. *Determine if you are on the right place:*
-   - *If you were performing an action on the app from the webadmin or the CLI (install, update, backup, restore, change url...), you are on the right place!*
-   - *Otherwise, the issue may be due to REPLACEBYYOURAPP itself. Refer to its documentation or repository for help.*
+   - *If you were performing an action on the app from the webadmin or the CLI (install, update, backup, restore, change_url...), you are on the right place!*
+   - *Otherwise, the issue may be due to Wetty itself. Refer to its documentation or repository for help.*
    - *If you have a doubt, post here, we will figure it out together.*
 3. *Delete the italic comments as you write over them below, and remove this guide.*
 --- 
@@ -29,13 +29,13 @@ about: Create a report to help us debug, it would be nice to fill the template a
 *Steps to reproduce the behavior.*
 - *If you performed a command from the CLI, the command itself is enough. For example:*
     ```sh
-    sudo yunohost app install REPLACEBYYOURAPP
+    sudo yunohost app install wetty
     ```
 - *If you used the webadmin, please perform the equivalent command from the CLI first.*
 - *If the error occurs in your browser, explain what you did:*
    1. *Go to '...'*
-   2. *Click on '....'*
-   3. *Scroll down to '....'*
+   2. *Click on '...'*
+   3. *Scroll down to '...'*
    4. *See error*
 
 **Expected behavior**
