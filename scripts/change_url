@@ -114,12 +114,6 @@ pushd "$final_path" || return 1
     yarn_bin_dir="$(sudo -u "$app" env "$ynh_node_load_PATH" yarn global bin)"
 popd || return 1
 
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-# Set permissions to app files
-chown -R root: "$final_path"
 
 #=================================================
 # SETUP SYSTEMD

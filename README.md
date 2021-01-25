@@ -1,6 +1,6 @@
 # Wetty for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 [![Install Wetty with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative, but much better)
 
-**Shipped version:** 2.0.2
+**Shipped version:** 2.0.3
 
 ## Screenshots
 
@@ -25,12 +25,15 @@ There is few configuration in Wetty:
 
 ## Documentation
 
- * Official documentation: https://github.com/butlerx/wetty/tree/master/docs
- * YunoHost documentation: If specific documentation is needed, feel free to contribute.
+* Official documentation: https://github.com/butlerx/wetty/tree/master/docs
+* YunoHost documentation: If specific documentation is needed, feel free to contribute.
 
 ## YunoHost specific features
 
 #### Multi-user support
+
+* Is LDAP and HTTP authentication supported ? **No**
+  * Nevertheless, being connected on Yunohost prevents using `/wetty/ssh/<user>`
 
 Multi-user doesn't really mean anything. You can log as any *system* user that allows local SSH login.
 
@@ -47,9 +50,9 @@ You can specify at install if users should log into YunoHost first to be able to
 
 ## Links
 
- * Report a bug: https://github.com/YunoHost-Apps/wetty_ynh/issues
- * Upstream app repository: https://github.com/butlerx/wetty
- * YunoHost website: https://yunohost.org/
+* Report a bug: https://github.com/YunoHost-Apps/wetty_ynh/issues
+* Upstream app repository: https://github.com/butlerx/wetty
+* YunoHost website: https://yunohost.org/
 
 ---
 

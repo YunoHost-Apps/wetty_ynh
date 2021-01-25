@@ -136,13 +136,6 @@ ynh_add_systemd_config --others_var="domain port path_url ynh_node_load_PATH yar
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-# Set permissions to app files
-chown -R root: "$final_path"
-
-#=================================================
 # SETUP LOGROTATE
 #=================================================
 ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1

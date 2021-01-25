@@ -1,6 +1,6 @@
 # Wetty pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 [![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Read this readme in english.](./README.md)*
@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
-**Version incluse :** 2.0.2
+**Version incluse :** 2.0.3
 
 ## Captures d'écran
 
@@ -25,14 +25,16 @@ Il y a peu de configuration dans Wetty :
 
 ## Documentation
 
- * Documentation officielle : https://github.com/butlerx/wetty/tree/master/docs
- * Documentation YunoHost : Si une documentation spécifique est nécessaire, n'hésitez pas à contribuer.
+* Documentation officielle : https://github.com/butlerx/wetty/tree/master/docs
+* Documentation YunoHost : Si une documentation spécifique est nécessaire, n'hésitez pas à contribuer.
 
 ## Caractéristiques spécifiques YunoHost
 
 #### Support multi-utilisateur
 
 * L'authentification LDAP et HTTP est-elle prise en charge ? **Non**
+  * Néanmoins, la connection sur Yunohost interdit l'utilisation de `/wetty/ssh/<utilisateur>`
+
 * L'application peut-elle être utilisée par plusieurs utilisateurs ? La notion de multi-utilisateur ne s'applique pas. Vous pouvez vous connecter en tant que n'importe quel utilisateur *système* qui autorise la connexion SSH locale.
 
 Vous pouvez spécifier lors de l'installation si les utilisateurs doivent d'abord se connecter à YunoHost pour pouvoir accéder à Wetty, ou si les visiteurs peuvent également y accéder.
@@ -48,9 +50,9 @@ Vous pouvez spécifier lors de l'installation si les utilisateurs doivent d'abor
 
 ## Liens
 
- * Signaler un bug : https://github.com/YunoHost-Apps/wetty_ynh/issues
- * Dépôt de l'application principale : https://github.com/butlerx/wetty
- * Site web YunoHost : https://yunohost.org/
+* Signaler un bug : https://github.com/YunoHost-Apps/wetty_ynh/issues
+* Dépôt de l'application principale : https://github.com/butlerx/wetty
+* Site web YunoHost : https://yunohost.org/
 
 ---
 
