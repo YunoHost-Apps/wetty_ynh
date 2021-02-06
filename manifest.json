@@ -6,7 +6,7 @@
         "en": "Terminal in browser over HTTP/HTTPS.",
         "fr": "Un terminal dans le navigateur sur HTTP/HTTPS."
     },
-    "version": "2.0.3~ynh1",
+    "version": "2.0.3~ynh3",
     "url": "https://github.com/butlerx/wetty/",
     "license": "MIT",
     "maintainer": {

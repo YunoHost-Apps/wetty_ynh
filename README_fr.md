@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
-**Version incluse :** 2.0.3
+**Version incluse :** 2.0.2
 
 ## Captures d'écran
 

@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative, but much better)
 
-**Shipped version:** 2.0.3
+**Shipped version:** 2.0.2
 
 ## Screenshots
 

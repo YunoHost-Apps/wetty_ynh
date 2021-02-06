@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/butlerx/wetty/archive/v2.0.3.tar.gz
-SOURCE_SUM=721b73111dd3812b52ff7a84164afc37720d95d020bf6d97b09e4afbf6d1c859
+SOURCE_URL=https://github.com/butlerx/wetty/archive/v2.0.2.tar.gz
+SOURCE_SUM=8bc879993d53da6b672a866354bc8568ca17f1b82a91dcd8561de90e9bfc0370
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
