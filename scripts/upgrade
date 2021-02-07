@@ -122,7 +122,10 @@ chown -R "$app":"$app" "$final_path"
 
 pushd "$final_path" || return 1
     ynh_use_nodejs ; set "${ynh_node_load_PATH:?}"
-    sudo -u "$app" env "$ynh_node_load_PATH" yarn global add wetty@"$YARN_APP_REAL_VERSION"
+    sudo -u "$app" env "$ynh_node_load_PATH" yarn
+    sudo -u "$app" env "$ynh_node_load_PATH" yarn build
+    sudo -u "$app" env "$ynh_node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
+
     yarn_bin_dir="$(sudo -u "$app" env "$ynh_node_load_PATH" yarn global bin)"
 popd || return 1
 
