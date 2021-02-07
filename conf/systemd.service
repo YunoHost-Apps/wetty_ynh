@@ -9,11 +9,7 @@ Group=__APP__
 WorkingDirectory=__FINALPATH__/
 Environment=NODE_ENV=production
 Environment="__YNH_NODE_LOAD_PATH__"
-ExecStart=__YARN_BIN_DIR__/wetty \
-    --host 127.0.0.1 \
-    --port __PORT__ \
-    --base __PATH_URL__/ \
-    --sshhost __DOMAIN__
+ExecStart=__YARN_BIN_DIR__/wetty --conf __FINALPATH__/config.json5
 
 [Install]
 WantedBy=multi-user.target
