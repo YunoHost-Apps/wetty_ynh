@@ -68,6 +68,9 @@ if ynh_legacy_permissions_exists; then
 	ynh_app_setting_delete --app=$app --key=is_public
 fi
 
+# Disable auth_header
+ynh_permission_url --permission="main" --auth_header=false
+
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
