@@ -30,7 +30,6 @@ ynh_script_progression --message="Loading installation settings..." --weight=1
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 
-
 #=================================================
 # BACKUP BEFORE CHANGE URL THEN ACTIVE TRAP
 #=================================================
@@ -114,6 +113,9 @@ path_url="$new_path"
 # port is already defined in this file
 
 ynh_add_config --template="config.json5" --destination="$final_path/config.json5"
+
+chmod 400 "$final_path/config.json5"
+chown $app:$app "$final_path/config.json5"
 
 #=================================================
 # GENERIC FINALISATION
