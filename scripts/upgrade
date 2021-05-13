@@ -137,6 +137,7 @@ pushd "$final_path" || return 1
     sudo -u $app env "$ynh_node_load_PATH" yarn
     sudo -u $app env "$ynh_node_load_PATH" yarn build
     sudo -u $app env "$ynh_node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
+    ynh_secure_remove --file="$final_path/.cache"
 popd || return 1
 
 #=================================================
