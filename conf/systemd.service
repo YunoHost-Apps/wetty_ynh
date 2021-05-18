@@ -7,7 +7,6 @@ Type=simple
 Environment=NODE_ENV=production
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/
 ExecStart=__YNH_NODE__ . --conf __FINALPATH__/config.json5
 TimeoutStopSec=20
 KillMode=mixed
