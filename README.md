@@ -41,8 +41,8 @@ You can specify at install if users should log into YunoHost first to be able to
 
 #### Supported architectures
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/wetty%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/wetty%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/wetty/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/wetty.svg)](https://ci-apps-arm.yunohost.org/ci/apps/wetty/)
 
 ## Limitations
 
