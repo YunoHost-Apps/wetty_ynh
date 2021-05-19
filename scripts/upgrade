@@ -88,8 +88,7 @@ then
 	ynh_setup_source --dest_dir="$final_path"
 fi
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
+chmod -R u=rwX,g=rX,o= "$final_path"
 chown -R $app:$app "$final_path"
 
 #=================================================
