@@ -4,12 +4,18 @@ After=network.target
 
 [Service]
 Type=simple
+Environment=NODE_ENV=production
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
-Environment=NODE_ENV=production
-Environment="__YNH_NODE_LOAD_PATH__"
-ExecStart=__YARN_BIN_DIR__/wetty --conf __FINALPATH__/config.json5
+ExecStart=__YNH_NODE__ . --conf ./config.json5
+TimeoutStopSec=20
+KillMode=mixed
+Restart=always
+RestartSec=2
+
+StandardOutput=append:/var/log/__APP__/__APP__.log
+StandardError=inherit
 
 [Install]
 WantedBy=multi-user.target

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #=================================================
 # GENERIC START
@@ -6,6 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
+# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,7 +15,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 ynh_clean_setup () {
-    true
+	true
 }
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
@@ -26,34 +27,28 @@ ynh_script_progression --message="Loading installation settings..." --weight=1
 
 app=$YNH_APP_INSTANCE_NAME
 
-final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
-domain=$(ynh_app_setting_get --app="$app" --key=domain)
-path_url=$(ynh_app_setting_get --app="$app" --key=path)
+domain=$(ynh_app_setting_get --app=$app --key=domain)
+path_url=$(ynh_app_setting_get --app=$app --key=path)
+final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
 #=================================================
 ynh_script_progression --message="Validating restoration parameters..." --weight=1
 
-ynh_webpath_available --domain="$domain" --path_url="$path_url" \
-    || ynh_die --message="Path not available: ${domain}${path_url}"
-test ! -d "$final_path" \
-    || ynh_die --message="There is already a directory: $final_path "
+ynh_webpath_available --domain=$domain --path_url=$path_url \
+	|| ynh_die --message="Path not available: ${domain}${path_url}"
+test ! -d $final_path \
+	|| ynh_die --message="There is already a directory: $final_path "
 
 #=================================================
 # STANDARD RESTORATION STEPS
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================
+ynh_script_progression --message="Restoring the NGINX configuration..."
 
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
-
-#=================================================
-# RESTORE THE APP MAIN DIR
-#=================================================
-ynh_script_progression --message="Restoring Wetty main directory..." --weight=1
-
-ynh_restore_file --origin_path="$final_path"
 
 #=================================================
 # RECREATE THE DEDICATED USER
@@ -61,14 +56,18 @@ ynh_restore_file --origin_path="$final_path"
 ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
 
 # Create the dedicated user (if not existing)
-ynh_system_user_create --username="$app"
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
-# RESTORE USER RIGHTS
+# RESTORE THE APP MAIN DIR
 #=================================================
+ynh_script_progression --message="Restoring the app main directory..." --weight=1
 
-# Restore permissions on app files
-chown -R "$app":"$app" "$final_path"
+ynh_restore_file --origin_path="$final_path"
+
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:$app "$final_path"
 
 #=================================================
 # SPECIFIC RESTORATION
@@ -78,11 +77,10 @@ chown -R "$app":"$app" "$final_path"
 ynh_script_progression --message="Reinstalling dependencies..." --weight=3
 
 # Install nodejs
-ynh_install_nodejs --nodejs_version="$YNH_NODEJS_VERSION"
+ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 
 # Install Yarn
-ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" \
-    --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
+ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
 #=================================================
 # RESTORE SYSTEMD
@@ -90,27 +88,29 @@ ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ st
 ynh_script_progression --message="Restoring the systemd configuration..." --weight=1
 
 ynh_restore_file --origin_path="/etc/systemd/system/$app.service"
-ynh_systemd_action --service_name="$app" --action="enable" --log_path="/var/log/$app/$app.log"
+systemctl enable $app.service --quiet
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "$app" --description "Wetty Web Terminal service" --log "/var/log/$app/$app.log"
+yunohost service add $app --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+mkdir -p "/var/log/$app/"
+ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log" --line_match="Server started"
 
 #=================================================
 # RESTORE THE LOGROTATE CONFIGURATION
 #=================================================
+ynh_script_progression --message="Restoring the logrotate configuration..."
 
-# ynh_restore_file --origin_path="/etc/logrotate.d/$app"
+ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -125,4 +125,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Restoration completed for Wetty" --last
+ynh_script_progression --message="Restoration completed for $app" --last

@@ -7,9 +7,7 @@
 # dependencies used by the app
 # pkg_dependencies=""
 
-YNH_NODEJS_VERSION=14
-
-YARN_APP_REAL_VERSION=2.0.2
+NODEJS_VERSION=14
 
 #=================================================
 # PERSONAL HELPERS
