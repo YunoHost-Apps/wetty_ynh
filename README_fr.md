@@ -11,11 +11,11 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 ## Vue d'ensemble
 Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
-**Version incluse :** 2.0.2
+**Version incluse :** 2.0.3
 
 ## Captures d'écran
 
-![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.2/docs/terminal.png)
+![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.3/docs/terminal.png)
 
 ## Configuration
 
