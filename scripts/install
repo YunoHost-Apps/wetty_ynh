@@ -69,7 +69,8 @@ ynh_script_progression --message="Installing dependencies..." --weight=6
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 
 # Install Yarn
-ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
+ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" \
+	--package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
 #=================================================
 # CREATE DEDICATED USER
@@ -118,11 +119,11 @@ chown $app:$app "$final_path/config.json5"
 ynh_script_progression --message="Building Yarn dependencies... This may take several minutes for a first install." --weight=6
 
 pushd "$final_path" || return 1
-    ynh_use_nodejs ; set "${ynh_node_load_PATH:?}"
-    sudo -u $app env "$ynh_node_load_PATH" yarn
-    sudo -u $app env "$ynh_node_load_PATH" yarn build
-    sudo -u $app env "$ynh_node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
-    ynh_secure_remove --file="$final_path/.cache"
+	ynh_use_nodejs ; set "${ynh_node_load_PATH:?}"
+	sudo -u $app env "$ynh_node_load_PATH" yarn
+	sudo -u $app env "$ynh_node_load_PATH" yarn build
+	sudo -u $app env "$ynh_node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
+	ynh_secure_remove --file="$final_path/.cache"
 popd || return 1
 
 #=================================================
