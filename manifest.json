@@ -13,7 +13,10 @@
         "license": "MIT",
         "website": "https://github.com/butlerx/wetty",
         "admindoc": "https://github.com/butlerx/wetty/tree/main/docs",
-        "code": "https://github.com/butlerx/wetty"
+        "code": "https://github.com/butlerx/wetty",
+        "screenshots": [
+            "https://raw.githubusercontent.com/butlerx/wetty/main/docs/terminal.png"
+        ]
     },
     "maintainer": {
         "name": "Salamandar",

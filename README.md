@@ -21,7 +21,9 @@ Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative)
 
 **Shipped version:** 2.0.3~ynh5
 
+## Screenshots
 
+![](https://raw.githubusercontent.com/butlerx/wetty/main/docs/terminal.png)
 
 ## Disclaimers / important information
 
