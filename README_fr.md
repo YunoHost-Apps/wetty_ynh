@@ -4,57 +4,42 @@
 [![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Read this readme in english.](./README.md)*
+*[Lire ce readme en français.](./README_fr.md)*
 
 > *Ce package vous permet d'installer Wetty rapidement et simplement sur un serveur YunoHost.
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-Terminal dans un navigateur par HTTP/HTTPS. (Alternative à Ajaxterm/Anyterm, mais bien meilleure)
 
-**Version incluse :** 2.0.3
+Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)
 
-## Captures d'écran
+**Version incluse:** 2.0.3~ynh5
 
-![](https://raw.githubusercontent.com/butlerx/wetty/v2.0.3/docs/terminal.png)
 
-## Configuration
+
+## Avertissements / informations importantes
+
+### Configuration
 
 Il y a peu de configuration dans Wetty :
 * La configuration de démarrage (port d'écoute, chemin d'URL, hôte SSH) est contenue dans le fichier de service systemd
 * La configuration de l'interface utilisateur se fait via l'interface graphique Web elle-même.
 
-## Documentation
-
-* Documentation officielle : https://github.com/butlerx/wetty/tree/master/docs
-* Documentation YunoHost : Si une documentation spécifique est nécessaire, n'hésitez pas à contribuer.
-
-## Caractéristiques spécifiques YunoHost
-
-#### Support multi-utilisateur
-
 * L'authentification LDAP et HTTP est-elle prise en charge ? **Non**
-  * Néanmoins, la connection sur Yunohost interdit l'utilisation de `/wetty/ssh/<utilisateur>`
+  * Vous devez vous connecter manuellement.
+  * Vous pouvez spécifier l'utilisateur en accédent directement `https://<host>/wetty/ssh/<username>`
 
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? La notion de multi-utilisateur ne s'applique pas. Vous pouvez vous connecter en tant que n'importe quel utilisateur *système* qui autorise la connexion SSH locale.
+* Vous pouvez spécifier à l'installation si Wetty devrait être accessible par des visiteurs non connectés sur Yunohost.
 
-Vous pouvez spécifier lors de l'installation si les utilisateurs doivent d'abord se connecter à YunoHost pour pouvoir accéder à Wetty, ou si les visiteurs peuvent également y accéder.
+* Vous ne pouvez pas vous authentifier par une clé SSH.
 
-#### Architectures supportées
+## Documentations et ressources
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/wetty%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/wetty%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/wetty/)
-
-## Limitations
-
-* Vous ne pouvez pas vous authentifier avec des clés SSH.
-
-## Liens
-
-* Signaler un bug : https://github.com/YunoHost-Apps/wetty_ynh/issues
-* Dépôt de l'application principale : https://github.com/butlerx/wetty
-* Site web YunoHost : https://yunohost.org/
-
----
+* Site official de l'app : https://github.com/butlerx/wetty
+* Documentation officielle de l'admin: https://github.com/butlerx/wetty/tree/main/docs
+* Dépôt de code officiel de l'app:  https://github.com/butlerx/wetty
+* Documentation YunoHost pour cette app: https://yunohost.org/app_wetty
+* Signaler un bug: https://github.com/YunoHost-Apps/wetty_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -63,6 +48,8 @@ Merci de faire vos pull request sur la [branche testing](https://github.com/Yuno
 Pour essayer la branche testing, procédez comme suit.
 ```
 sudo yunohost app install https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
-ou
+or
 sudo yunohost app upgrade wetty -u https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
 ```
+
+**Plus d'infos sur le packaging d'applications:** https://yunohost.org/packaging_apps
