@@ -1,6 +1,6 @@
 # Wetty pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 [![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Read this readme in english.](./README.md)*
@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)
 
-**Version incluse :** 2.0.3~ynh5
+**Version incluse :** 2.1.1~ynh0
 
 
 
