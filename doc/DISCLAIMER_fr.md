@@ -8,6 +8,6 @@ Il y a peu de configuration dans Wetty :
   * Vous devez vous connecter manuellement.
   * Vous pouvez spécifier l'utilisateur en accédent directement `https://<host>/wetty/ssh/<username>`
 
-* Vous pouvez spécifier à l'installation si Wetty devrait être accessible par des visiteurs non connectés sur Yunohost.
+* Vous pouvez spécifier à l'installation si Wetty devrait être accessible par des visiteurs non connectés sur YunoHost.
 
 * Vous ne pouvez pas vous authentifier par une clé SSH.
