@@ -13,9 +13,13 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)
 
-**Version incluse :** 2.1.1~ynh0
+**Version incluse :** 2.1.1~ynh1
 
 
+
+## Captures d'écran
+
+![](./doc/screenshots/terminal.png)
 
 ## Avertissements / informations importantes
 
