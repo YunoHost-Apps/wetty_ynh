@@ -11,7 +11,8 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)
+Terminal sur HTTP et HTTPS. WeTTy est une alternative à ajaxterm et anyterm mais bien meilleure qu'eux car WeTTy utilise xterm.js qui est une implémentation complète de l'émulation de terminal écrite entièrement en JavaScript. WeTTy utilise des websockets plutôt que Ajax et donc un meilleur temps de réponse.
+
 
 **Version incluse :** 2.1.1~ynh1
 
@@ -33,7 +34,7 @@ Il y a peu de configuration dans Wetty :
   * Vous devez vous connecter manuellement.
   * Vous pouvez spécifier l'utilisateur en accédent directement `https://<host>/wetty/ssh/<username>`
 
-* Vous pouvez spécifier à l'installation si Wetty devrait être accessible par des visiteurs non connectés sur Yunohost.
+* Vous pouvez spécifier à l'installation si Wetty devrait être accessible par des visiteurs non connectés sur YunoHost.
 
 * Vous ne pouvez pas vous authentifier par une clé SSH.
 

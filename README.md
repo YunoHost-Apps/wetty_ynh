@@ -15,7 +15,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Terminal over HTTP and https. WeTTy is an alternative to ajaxterm and anyterm but much better than them because WeTTy uses xterm.js which is a full fledged implementation of terminal emulation written entirely in JavaScript. WeTTy uses websockets rather then Ajax and hence better response time.
+Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm but much better than them because WeTTy uses xterm.js which is a full fledged implementation of terminal emulation written entirely in JavaScript. WeTTy uses websockets rather then Ajax and hence better response time.
 
 
 **Shipped version:** 2.1.1~ynh1
@@ -35,11 +35,11 @@ There is few configuration in Wetty:
 * User interface configuration is done through the web GUI itself.
 
 
-* Is LDAP and HTTP authentication supported ? **No**
+* Is LDAP and HTTP authentication supported? **No**
   * You need to manually log in.
   * You can log in as a specific user using `https://<host>/wetty/ssh/<username>`
 
-* You can specify at install if Wetty should be visible by users not logged into Yunohost.
+* You can specify at install if Wetty should be visible by users not logged into YunoHost.
 
 * You can't use ssh key authentication.
 
