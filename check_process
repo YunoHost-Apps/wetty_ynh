@@ -14,7 +14,7 @@
 		setup_public=1
 		upgrade=1
 		# 2.0.3~ynh4
-		upgrade=1	from_commit=a3ac3d094feaa8ea45d98fb8c067c532216bb1a8
+		upgrade=1	from_commit=4afc815e6ebec8a93e7680c637813dedbc27f2a7
 		backup_restore=1
 		multi_instance=1
 		port_already_use=0
