@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Wetty for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Working status](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
 [![Install Wetty with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -20,11 +20,9 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 **Shipped version:** 2.1.1~ynh1
 
-
-
 ## Screenshots
 
-![](./doc/screenshots/terminal.png)
+![Screenshot of Wetty](./doc/screenshots/terminal.png)
 
 ## Disclaimers / important information
 
@@ -45,21 +43,22 @@ There is few configuration in Wetty:
 
 ## Documentation and resources
 
-* Official app website: https://github.com/butlerx/wetty
-* Official admin documentation: https://github.com/butlerx/wetty/tree/main/docs
-* Upstream app code repository: https://github.com/butlerx/wetty
-* YunoHost documentation for this app: https://yunohost.org/app_wetty
-* Report a bug: https://github.com/YunoHost-Apps/wetty_ynh/issues
+* Official app website: <https://github.com/butlerx/wetty>
+* Official admin documentation: <https://github.com/butlerx/wetty/tree/main/docs>
+* Upstream app code repository: <https://github.com/butlerx/wetty>
+* YunoHost documentation for this app: <https://yunohost.org/app_wetty>
+* Report a bug: <https://github.com/YunoHost-Apps/wetty_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade wetty -u https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
