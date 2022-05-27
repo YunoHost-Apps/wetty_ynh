@@ -14,7 +14,7 @@
 		setup_public=1
 		upgrade=1
 		# 2.0.3~ynh4
-		upgrade=1	from_commit=4afc815e6ebec8a93e7680c637813dedbc27f2a7
+		upgrade=1	from_commit=e7ffa9512f59c8c2097512a4b6613524c5284e77
 		backup_restore=1
 		multi_instance=1
 		change_url=1
@@ -22,5 +22,5 @@
 Email=
 Notification=none
 ;;; Upgrade options
-	; commit=a3ac3d094feaa8ea45d98fb8c067c532216bb1a8
-		name=2.0.3~ynh4
+	; commit=e7ffa9512f59c8c2097512a4b6613524c5284e77
+		name=2.1.1~ynh
