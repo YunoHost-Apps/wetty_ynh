@@ -6,7 +6,7 @@
         "en": "Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative)",
         "fr": "Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)"
     },
-    "version": "2.4.0~ynh1",
+    "version": "2.4.1~ynh1",
     "url": "https://github.com/butlerx/wetty/",
     "license": "MIT",
     "upstream": {
