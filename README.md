@@ -20,6 +20,7 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 **Shipped version:** 2.4.1~ynh1
 
+
 ## Screenshots
 
 ![Screenshot of Wetty](./doc/screenshots/terminal.png)
