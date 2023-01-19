@@ -18,7 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Terminal sur HTTP et HTTPS. WeTTy est une alternative à ajaxterm et anyterm mais bien meilleure qu'eux car WeTTy utilise xterm.js qui est une implémentation complète de l'émulation de terminal écrite entièrement en JavaScript. WeTTy utilise des websockets plutôt que Ajax et donc un meilleur temps de réponse.
 
 
-**Version incluse :** 2.5.0~ynh1
+**Version incluse :** 2.5.0~ynh2
 
 ## Captures d’écran
 
