@@ -43,7 +43,6 @@ There is few configuration in Wetty:
 
 ## Documentation and resources
 
-* Official app website: <https://github.com/butlerx/wetty>
 * Official admin documentation: <https://github.com/butlerx/wetty/tree/main/docs>
 * Upstream app code repository: <https://github.com/butlerx/wetty>
 * YunoHost documentation for this app: <https://yunohost.org/app_wetty>

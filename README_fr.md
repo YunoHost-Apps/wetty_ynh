@@ -42,7 +42,6 @@ Il y a peu de configuration dans Wetty :
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://github.com/butlerx/wetty>
 * Documentation officielle de l’admin : <https://github.com/butlerx/wetty/tree/main/docs>
 * Dépôt de code officiel de l’app : <https://github.com/butlerx/wetty>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_wetty>
