@@ -3,15 +3,14 @@
     "id": "wetty",
     "packaging_format": 1,
     "description": {
-        "en": "Terminal in browser over HTTP/HTTPS. (Ajaxterm/Anyterm alternative)",
-        "fr": "Un terminal dans le navigateur sur HTTP/HTTPS. (alternative à Ajaxterm/Anyterm)"
+        "en": "Terminal in browser over HTTP/HTTPS",
+        "fr": "Un terminal dans le navigateur sur HTTP/HTTPS"
     },
-    "version": "2.4.2~ynh1",
+    "version": "2.5.0~ynh2",
     "url": "https://github.com/butlerx/wetty/",
     "license": "MIT",
     "upstream": {
         "license": "MIT",
-        "website": "https://github.com/butlerx/wetty",
         "admindoc": "https://github.com/butlerx/wetty/tree/main/docs",
         "code": "https://github.com/butlerx/wetty",
         "screenshots": [
@@ -23,7 +22,7 @@
         "email": "salamandar@salamandar.fr"
     },
     "requirements": {
-        "yunohost": ">= 4.3.0"
+        "yunohost": ">= 11.0.9"
     },
     "multi_instance": true,
     "services": [

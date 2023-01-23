@@ -5,25 +5,24 @@ It shall NOT be edited by hand.
 
 # Wetty pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)  
 [![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Wetty rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Wetty rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Terminal sur HTTP et HTTPS. WeTTy est une alternative à ajaxterm et anyterm mais bien meilleure qu'eux car WeTTy utilise xterm.js qui est une implémentation complète de l'émulation de terminal écrite entièrement en JavaScript. WeTTy utilise des websockets plutôt que Ajax et donc un meilleur temps de réponse.
 
 
-**Version incluse :** 2.4.2~ynh1
+**Version incluse :** 2.5.0~ynh2
 
+## Captures d’écran
 
-## Captures d'écran
-
-![Capture d'écran de Wetty](./doc/screenshots/terminal.png)
+![Capture d’écran de Wetty](./doc/screenshots/terminal.png)
 
 ## Avertissements / informations importantes
 
@@ -43,9 +42,8 @@ Il y a peu de configuration dans Wetty :
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://github.com/butlerx/wetty>
-* Documentation officielle de l'admin : <https://github.com/butlerx/wetty/tree/main/docs>
-* Dépôt de code officiel de l'app : <https://github.com/butlerx/wetty>
+* Documentation officielle de l’admin : <https://github.com/butlerx/wetty/tree/main/docs>
+* Dépôt de code officiel de l’app : <https://github.com/butlerx/wetty>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_wetty>
 * Signaler un bug : <https://github.com/YunoHost-Apps/wetty_ynh/issues>
 
@@ -61,4 +59,4 @@ ou
 sudo yunohost app upgrade wetty -u https://github.com/YunoHost-Apps/wetty_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
