@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm but much better than them because WeTTy uses xterm.js which is a full fledged implementation of terminal emulation written entirely in JavaScript. WeTTy uses websockets rather then Ajax and hence better response time.
 
 
-**Shipped version:** 2.5.0~ynh2
+**Shipped version:** 2.5.0~ynh3
 
 ## Screenshots
 
@@ -44,8 +44,7 @@ There is few configuration in Wetty:
 
 ## Documentation and resources
 
-* Official admin documentation: <https://github.com/butlerx/wetty/tree/main/docs>
-* Upstream app code repository: <https://github.com/butlerx/wetty>
+* Official app website: <https://github.com/butlerx/wetty/>
 * YunoHost documentation for this app: <https://yunohost.org/app_wetty>
 * Report a bug: <https://github.com/YunoHost-Apps/wetty_ynh/issues>
 
