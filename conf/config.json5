@@ -12,7 +12,7 @@
     // config:  '/home/user/.wetty_ssh_config', // alternative ssh configuration file, see "-F" option in ssh(1)
   },
   server:  {
-    base:         '__PATH_URL__',                      // URL base to serve resources from
+    base:         '__PATH__',                      // URL base to serve resources from
     port:         __PORT__,                            // Port to listen on
     host:         '127.0.0.1',                         // address to listen on
     title:        'WeTTy - The Web Terminal Emulator', // Page title
