@@ -27,7 +27,7 @@ Terminal sur HTTP et HTTPS. WeTTy est une alternative à ajaxterm et anyterm mai
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://github.com/butlerx/wetty/>
+* Dépôt de code officiel de l’app : <https://github.com/butlerx/wetty>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_wetty>
 * Signaler un bug : <https://github.com/YunoHost-Apps/wetty_ynh/issues>
 
