@@ -10,8 +10,8 @@ version = "2.5.0~ynh3"
 maintainers = ["Salamandar"]
 
 [upstream]
-license = "free"
-website = "https://github.com/butlerx/wetty/"
+license = "MIT"
+code = "https://github.com/butlerx/wetty"
 
 [integration]
 yunohost = ">=11.1.20"
