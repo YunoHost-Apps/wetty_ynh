@@ -14,7 +14,7 @@ license = "free"
 website = "https://github.com/butlerx/wetty/"
 
 [integration]
-yunohost = ">=11.1.0"
+yunohost = ">=11.1.20"
 architectures = "all"
 multi_instance = true
 ldap = "not_relevant"
@@ -52,3 +52,9 @@ ram.runtime = "?" # FIXME: replace with an **estimate** minimum ram requirement.
 
     [resources.ports]
     main.default = 8095
+
+    [resources.apt]
+    packages = ""
+    extras.yarn.repo = "deb https://dl.yarnpkg.com/debian/ stable main"
+    extras.yarn.key = "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    extras.yarn.packages = "yarn"

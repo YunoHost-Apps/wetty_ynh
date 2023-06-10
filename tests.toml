@@ -1,0 +1,5 @@
+test_format = 1.0
+
+[default]
+
+    test_upgrade_from.e7ffa9512f59c8c2097512a4b6613524c5284e77.name = "Upgrade from 2.0.3~ynh4"
