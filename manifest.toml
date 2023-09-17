@@ -2,8 +2,8 @@ packaging_format = 2
 
 id = "wetty"
 name = "Wetty"
-description.en = "Terminal in browser over http/https. (Ajaxterm/Anyterm alternative, but much better)"
-description.fr = "Un terminal dans le navigateur sur http/https. (Alternative à Ajaxterm/Anyterm, mais bien meilleur)"
+description.en = "Terminal in browser over http/https"
+description.fr = "Un terminal dans le navigateur sur http/https"
 
 version = "2.7.0~ynh3"
 
@@ -14,7 +14,7 @@ license = "MIT"
 code = "https://github.com/butlerx/wetty"
 
 [integration]
-yunohost = ">=11.1.20"
+yunohost = ">=11.2"
 architectures = "all"
 multi_instance = true
 ldap = "not_relevant"
