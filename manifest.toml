@@ -35,7 +35,7 @@ ram.runtime = "50M"
     help.en = "Even if public, it still requires authentication."
     help.fr = "Même publique, vous devrez vous authentifier"
     type = "group"
-    default = false
+    default = "visitors"
 
 [resources]
     [resources.sources.main]
