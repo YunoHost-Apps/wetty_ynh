@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Wetty YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 
 [![Instalatu Wetty YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
@@ -19,7 +19,7 @@ EZ editatu eskuz.
 Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm but much better than them because WeTTy uses xterm.js which is a full fledged implementation of terminal emulation written entirely in JavaScript. WeTTy uses websockets rather then Ajax and hence better response time.
 
 
-**Paketatutako bertsioa:** 2.5.0~ynh3
+**Paketatutako bertsioa:** 2.7.0~ynh1
 
 ## Pantaila-argazkiak
 

@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Wetty pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 
 [![Installer Wetty avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
@@ -19,7 +19,7 @@ Il NE doit PAS être modifié à la main.
 Terminal sur HTTP et HTTPS. WeTTy est une alternative à ajaxterm et anyterm mais bien meilleure qu'eux car WeTTy utilise xterm.js qui est une implémentation complète de l'émulation de terminal écrite entièrement en JavaScript. WeTTy utilise des websockets plutôt que Ajax et donc un meilleur temps de réponse.
 
 
-**Version incluse :** 2.5.0~ynh3
+**Version incluse :** 2.7.0~ynh1
 
 ## Captures d’écran
 
