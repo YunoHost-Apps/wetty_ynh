@@ -27,7 +27,7 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 ## Dokumentasi dan sumber daya
 
-- Repositori kode aplikasi hulu: <https://github.com/butlerx/wetty>
+- Depot kode aplikasi hulu: <https://github.com/butlerx/wetty>
 - Gudang YunoHost: <https://apps.yunohost.org/app/wetty>
 - Laporkan bug: <https://github.com/YunoHost-Apps/wetty_ynh/issues>
 

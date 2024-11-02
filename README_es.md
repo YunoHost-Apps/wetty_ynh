@@ -33,7 +33,7 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
