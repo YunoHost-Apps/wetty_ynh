@@ -18,8 +18,6 @@ ynh_script_progression "Updating NGINX web server configuration..."
 ynh_config_change_url_nginx
 
 #=================================================
-# SPECIFIC MODIFICATIONS
-#=================================================
 # CHANGE URL IN CONFIG FILE
 #=================================================
 ynh_script_progression "Editing config file..."
@@ -27,11 +25,7 @@ ynh_script_progression "Editing config file..."
 domain="$new_domain"
 path_url="$new_path"
 # port is already defined in this file
-
 ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
-
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/config.json5"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:$app "$install_dir/config.json5"
 
 #=================================================
 # START SYSTEMD SERVICE

@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
+
+#=================================================
+# UPGRADE DEPENDENCIES
+#=================================================
+ynh_script_progression "Upgrading dependencies..."
+
+ynh_nodejs_install
 
 #=================================================
 # STOP SYSTEMD SERVICE
@@ -19,7 +22,6 @@ ynh_systemctl --service=$app --action="stop"
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
 
-# Disable auth_header
 ynh_permission_url --permission="main" --auth_header=false
 
 #=================================================
@@ -27,26 +29,20 @@ ynh_permission_url --permission="main" --auth_header=false
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.json5"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R u=rwX,g=rX,o= "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:$app "$install_dir"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
 ynh_script_progression "Upgrading NGINX web server configuration..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
-#=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression "Upgrading dependencies..."
+ynh_config_add_systemd
 
-# Install nodejs
-ynh_nodejs_install
+ynh_config_add_logrotate
+
+yunohost service add $app --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -55,45 +51,17 @@ ynh_script_progression "Updating configuration..."
 
 ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
 
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/config.json5"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:$app "$install_dir/config.json5"
-
 #=================================================
 # BUILD YARN DEPENDENCIES
 #=================================================
 ynh_script_progression "Rebuilding Yarn dependencies..."
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:$app "$install_dir"
-pushd "$install_dir" || return 1
-	 ; set "${node_load_PATH:?}"
-	ynh_exec_as_app node_load_PATH" yarn
-	ynh_exec_as_app node_load_PATH" yarn build
-	ynh_exec_as_app node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
+pushd "$install_dir"
+	ynh_exec_as_app yarn
+	ynh_exec_as_app yarn build
+	ynh_exec_as_app yarn install --production --ignore-scripts --prefer-offline
 	ynh_safe_rm "$install_dir/.cache"
-popd || return 1
-
-#=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression "Upgrading systemd configuration..."
-
-# Create a dedicated systemd config
-ynh_config_add_systemd
-
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression "Upgrading logrotate configuration..."
-
-# Use logrotate to manage app-specific logfile(s)
-ynh_config_add_logrotate
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression "Integrating service in YunoHost..."
-
-yunohost service add $app --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
