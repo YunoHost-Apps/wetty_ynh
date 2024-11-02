@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Wetty YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 
 [![Instalatu Wetty YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 

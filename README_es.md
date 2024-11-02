@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # Wetty para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
 
 [![Instalar Wetty con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
@@ -33,7 +33,7 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
