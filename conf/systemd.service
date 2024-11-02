@@ -8,7 +8,7 @@ Environment=NODE_ENV=production
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__YNH_NODE__ . --conf ./config.json5
+ExecStart=__NODEJS_DIR__/node . --conf ./config.json5
 TimeoutStopSec=20
 KillMode=mixed
 Restart=always
