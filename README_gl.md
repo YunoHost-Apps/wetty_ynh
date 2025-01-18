@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # Wetty para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/wetty.svg)](https://ci-apps.yunohost.org/ci/apps/wetty/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/wetty)](https://ci-apps.yunohost.org/ci/apps/wetty/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/wetty)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/wetty)
 
 [![Instalar Wetty con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 

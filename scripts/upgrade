@@ -1,21 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
 
 source _common.sh
 source /usr/share/yunohost/helpers
-
-#=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression "Upgrading dependencies..."
-
-ynh_nodejs_install
 
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemctl --service=$app --action="stop"
+ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -25,29 +22,24 @@ ynh_script_progression "Ensuring downward compatibility..."
 ynh_permission_url --permission="main" --auth_header=false
 
 #=================================================
+# UPGRADE DEPENDENCIES
+#=================================================
+ynh_script_progression "Upgrading dependencies..."
+
+ynh_nodejs_install
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
+# Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.json5"
-
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression "Upgrading NGINX web server configuration..."
-
-ynh_config_add_nginx
-
-ynh_config_add_systemd
-
-ynh_config_add_logrotate
-
-yunohost service add $app --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression "Updating configuration..."
+ynh_script_progression "Updating $app's configuration files..."
 
 ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
 
@@ -57,19 +49,32 @@ ynh_config_add --template="config.json5" --destination="$install_dir/config.json
 ynh_script_progression "Rebuilding Yarn dependencies..."
 
 pushd "$install_dir"
-	ynh_hide_warnings corepack enable && corepack prepare pnpm@latest --activate
-	ynh_hide_warnings ynh_exec_as_app yarn
-	ynh_hide_warnings ynh_exec_as_app yarn build
-	ynh_hide_warnings ynh_exec_as_app yarn install --production --ignore-scripts --prefer-offline
-	ynh_hide_warnings ynh_safe_rm "$install_dir/.cache"
+	ynh_hide_warnings corepack enable
+	ynh_hide_warnings yarn install
+	ynh_hide_warnings yarn build
+	ynh_hide_warnings yarn cache clean
 popd
+chown "$app:$app" "$install_dir"
+
+#=================================================
+# REAPPLY SYSTEM CONFIGURATIONS
+#=================================================
+ynh_script_progression "Upgrading system configurations related to $app..."
+
+ynh_config_add_nginx
+
+ynh_config_add_systemd
+
+yunohost service add "$app" --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
+
+ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start"  --wait_until="Server started"
+ynh_systemctl --service="$app" --action="start"  --wait_until="Server started"
 
 #=================================================
 # END OF SCRIPT
