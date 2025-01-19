@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
 packaging_format = 2
 
 id = "wetty"
@@ -5,7 +7,7 @@ name = "Wetty"
 description.en = "Terminal in browser over http/https"
 description.fr = "Un terminal dans le navigateur sur http/https"
 
-version = "2.5.0~ynh3"
+version = "2.7.0~ynh1"
 
 maintainers = ["Salamandar"]
 
@@ -14,11 +16,15 @@ license = "MIT"
 code = "https://github.com/butlerx/wetty"
 
 [integration]
-yunohost = ">=11.2"
+yunohost = ">= 11.2.30"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
+
 ldap = "not_relevant"
+
 sso = false
+
 disk = "50M"
 ram.build = "700M"
 ram.runtime = "50M"
@@ -39,8 +45,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/butlerx/wetty/archive/refs/tags/v2.5.0.tar.gz"
-    sha256 = "a6f7e3687619c29b2b8cc04b502fd8207c53a895527849557d3d3ed7f362cbac"
+    url = "https://github.com/butlerx/wetty/archive/refs/tags/v2.7.0.tar.gz"
+    sha256 = "4c920be38036da1edd2a01f16396ea095ec5fb3552a168caa0082a828ad87217"
     autoupdate.strategy = "latest_github_release"
 
     [resources.system_user]
@@ -54,7 +60,4 @@ ram.runtime = "50M"
     main.default = 8095
 
     [resources.apt]
-    packages = ""
-    extras.yarn.repo = "deb https://dl.yarnpkg.com/debian/ stable main"
-    extras.yarn.key = "https://dl.yarnpkg.com/debian/pubkey.gpg"
-    extras.yarn.packages = "yarn"
+    packages = "make, build-essential, python3"

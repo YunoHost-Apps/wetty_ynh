@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Wetty para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/wetty.svg)](https://dash.yunohost.org/appci/app/wetty) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/wetty.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/wetty.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/wetty)](https://ci-apps.yunohost.org/ci/apps/wetty/)
+![Estado funcional](https://apps.yunohost.org/badge/state/wetty)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/wetty)
 
 [![Instalar Wetty con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=wetty)
 
@@ -19,7 +21,7 @@ No se debe editar a mano.
 Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm but much better than them because WeTTy uses xterm.js which is a full fledged implementation of terminal emulation written entirely in JavaScript. WeTTy uses websockets rather then Ajax and hence better response time.
 
 
-**Versión actual:** 2.5.0~ynh3
+**Versión actual:** 2.7.0~ynh1
 
 ## Capturas
 
@@ -33,7 +35,7 @@ Terminal over HTTP and HTTPS. WeTTy is an alternative to ajaxterm and anyterm bu
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/wetty_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 

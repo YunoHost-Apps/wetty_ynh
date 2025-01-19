@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #=================================================
 # IMPORT GENERIC HELPERS
@@ -10,106 +10,74 @@ source /usr/share/yunohost/helpers
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --weight=1
+ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
+ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+ynh_script_progression "Ensuring downward compatibility..."
 
-# Disable auth_header
 ynh_permission_url --permission="main" --auth_header=false
-
-#=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression --message="Upgrading source files..."
-
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.json5"
-
-chmod -R u=rwX,g=rX,o= "$install_dir"
-chown -R $app:$app "$install_dir"
-
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
-
-# Create a dedicated NGINX config
-ynh_add_nginx_config
 
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Upgrading dependencies..." --weight=3
+ynh_script_progression "Upgrading dependencies..."
 
-# Install nodejs
-ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+ynh_nodejs_install
 
 #=================================================
-# SPECIFIC UPGRADE
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Upgrading source files..."
+
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.json5"
+
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Updating a configuration file..."
+ynh_script_progression "Updating $app's configuration files..."
 
-ynh_add_config --template="config.json5" --destination="$install_dir/config.json5"
-
-chmod 400 "$install_dir/config.json5"
-chown $app:$app "$install_dir/config.json5"
+ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
 
 #=================================================
 # BUILD YARN DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Rebuilding Yarn dependencies..." --weight=2
+ynh_script_progression "Rebuilding Yarn dependencies..."
 
-chown -R $app:$app "$install_dir"
-
-pushd "$install_dir" || return 1
-	ynh_use_nodejs ; set "${ynh_node_load_PATH:?}"
-	sudo -u $app env "$ynh_node_load_PATH" yarn
-	sudo -u $app env "$ynh_node_load_PATH" yarn build
-	sudo -u $app env "$ynh_node_load_PATH" yarn install --production --ignore-scripts --prefer-offline
-	ynh_secure_remove --file="$install_dir/.cache"
-popd || return 1
+pushd "$install_dir"
+	ynh_hide_warnings corepack enable
+	ynh_hide_warnings yarn install
+	ynh_hide_warnings yarn build
+	ynh_hide_warnings yarn cache clean
+popd
+chown "$app:$app" "$install_dir"
 
 #=================================================
-# SETUP SYSTEMD
+# REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading systemd configuration..." --weight=1
+ynh_script_progression "Upgrading system configurations related to $app..."
 
-# Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_nginx
 
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
+ynh_config_add_systemd
 
-# Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
+yunohost service add "$app" --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
 
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
+ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log" --line_match="Server started"
+ynh_systemctl --service="$app" --action="start"  --wait_until="Server started"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"
