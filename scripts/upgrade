@@ -22,13 +22,6 @@ ynh_script_progression "Ensuring downward compatibility..."
 ynh_permission_url --permission="main" --auth_header=false
 
 #=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression "Upgrading dependencies..."
-
-ynh_nodejs_install
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
@@ -44,6 +37,25 @@ ynh_script_progression "Updating $app's configuration files..."
 ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
 
 #=================================================
+# UPGRADE DEPENDENCIES
+#=================================================
+ynh_script_progression "Upgrading dependencies..."
+
+ynh_nodejs_install
+
+#=================================================
+# REAPPLY SYSTEM CONFIGURATIONS
+#=================================================
+ynh_script_progression "Upgrading system configurations related to $app..."
+
+ynh_config_add_nginx
+
+ynh_config_add_systemd
+yunohost service add "$app" --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
+
+ynh_config_add_logrotate
+
+#=================================================
 # BUILD YARN DEPENDENCIES
 #=================================================
 ynh_script_progression "Rebuilding Yarn dependencies..."
@@ -57,24 +69,11 @@ popd
 chown "$app:$app" "$install_dir"
 
 #=================================================
-# REAPPLY SYSTEM CONFIGURATIONS
-#=================================================
-ynh_script_progression "Upgrading system configurations related to $app..."
-
-ynh_config_add_nginx
-
-ynh_config_add_systemd
-
-yunohost service add "$app" --description="Wetty Web Terminal service" --log="/var/log/$app/$app.log"
-
-ynh_config_add_logrotate
-
-#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service="$app" --action="start"  --wait_until="Server started"
+ynh_systemctl --service="$app" --action="start" --wait_until="Server started"
 
 #=================================================
 # END OF SCRIPT
