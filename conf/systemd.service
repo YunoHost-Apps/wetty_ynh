@@ -4,10 +4,10 @@ After=network.target
 
 [Service]
 Type=simple
-Environment=NODE_ENV=production
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
+Environment=NODE_ENV=production
 Environment="PATH=__PATH_WITH_NODEJS__"
 ExecStart=__NODEJS_DIR__/node . --conf ./config.json5
 TimeoutStopSec=20
