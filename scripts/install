@@ -12,13 +12,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 #=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression "Installing dependencies..."
-
-ynh_nodejs_install
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
@@ -37,17 +30,11 @@ chmod 400 "$install_dir/config.json5"
 chown "$app:$app" "$install_dir/config.json5"
 
 #=================================================
-# BUILD YARN DEPENDENCIES
+# INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression "Building Yarn dependencies... This may take several minutes for a first install."
+ynh_script_progression "Installing dependencies..."
 
-pushd "$install_dir"
-	ynh_hide_warnings corepack enable
-	ynh_hide_warnings yarn install
-	ynh_hide_warnings yarn build
-	ynh_hide_warnings yarn cache clean
-popd
-chown "$app:$app" "$install_dir"
+ynh_nodejs_install
 
 #=================================================
 # SYSTEM CONFIGURATION
@@ -66,12 +53,25 @@ ynh_config_add_logrotate
 
 
 #=================================================
+# BUILD YARN DEPENDENCIES
+#=================================================
+ynh_script_progression "Building Yarn dependencies... This may take several minutes for a first install."
+
+pushd "$install_dir"
+	ynh_hide_warnings corepack enable
+	ynh_hide_warnings yarn install
+	ynh_hide_warnings yarn build
+	ynh_hide_warnings yarn cache clean
+popd
+chown "$app:$app" "$install_dir"
+
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemctl --service="$app" --action="start"  --wait_until="Server started"
+ynh_systemctl --service="$app" --action="start" --wait_until="Server started"
 
 #=================================================
 # END OF SCRIPT
