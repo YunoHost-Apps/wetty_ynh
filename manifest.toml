@@ -16,7 +16,7 @@ license = "MIT"
 code = "https://github.com/butlerx/wetty"
 
 [integration]
-yunohost = ">= 11.2.30"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -61,3 +61,6 @@ ram.runtime = "50M"
 
     [resources.apt]
     packages = "make, build-essential, python3"
+
+    [resources.nodejs]
+    version = "20"

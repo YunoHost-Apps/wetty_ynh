@@ -4,7 +4,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -34,7 +34,7 @@ chown "$app:$app" "$install_dir/config.json5"
 #=================================================
 ynh_script_progression "Installing dependencies..."
 
-ynh_nodejs_install
+#REMOVEME? ynh_nodejs_install
 
 #=================================================
 # SYSTEM CONFIGURATION
