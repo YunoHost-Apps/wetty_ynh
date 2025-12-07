@@ -4,7 +4,6 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -35,13 +34,6 @@ ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.json5"
 ynh_script_progression "Updating $app's configuration files..."
 
 ynh_config_add --template="config.json5" --destination="$install_dir/config.json5"
-
-#=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression "Upgrading dependencies..."
-
-#REMOVEME? ynh_nodejs_install
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS

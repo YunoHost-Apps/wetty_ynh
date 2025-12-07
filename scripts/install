@@ -4,12 +4,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-
 source /usr/share/yunohost/helpers
-
-#=================================================
-# INITIALIZE AND STORE SETTINGS
-#=================================================
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -28,13 +23,6 @@ ynh_config_add --template="config.json5" --destination="$install_dir/config.json
 
 chmod 400 "$install_dir/config.json5"
 chown "$app:$app" "$install_dir/config.json5"
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression "Installing dependencies..."
-
-#REMOVEME? ynh_nodejs_install
 
 #=================================================
 # SYSTEM CONFIGURATION
