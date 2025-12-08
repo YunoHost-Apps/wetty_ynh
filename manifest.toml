@@ -59,4 +59,7 @@ ram.runtime = "50M"
     main.default = 8095
 
     [resources.apt]
-    packages = "make, build-essential, python3"
+    packages = "make, build-essential, python3, yarn"
+
+    [resources.nodejs]
+    version = "20"
