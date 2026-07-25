@@ -47,7 +47,7 @@ ynh_script_progression "Building Yarn dependencies... This may take several minu
 
 pushd "$install_dir"
 	ynh_hide_warnings corepack enable
-	ynh_hide_warnings pnpm install --prod --frozen-lockfile --ignore-scripts
+	ynh_hide_warnings pnpm install --frozen-lockfile
 	ynh_hide_warnings pnpm run build
 popd
 
