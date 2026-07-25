@@ -54,10 +54,10 @@ ynh_script_progression "Rebuilding Yarn dependencies..."
 
 pushd "$install_dir"
 	ynh_hide_warnings corepack enable
-	ynh_hide_warnings yarn install
-	ynh_hide_warnings yarn build
-	ynh_hide_warnings yarn cache clean
+	ynh_hide_warnings pnpm install --prod --frozen-lockfile --ignore-scripts
+	ynh_hide_warnings pnpm run build
 popd
+
 chown "$app:$app" "$install_dir"
 
 #=================================================
