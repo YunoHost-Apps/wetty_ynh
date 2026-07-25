@@ -9,7 +9,7 @@ Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 Environment=NODE_ENV=production
 Environment="PATH=__PATH_WITH_NODEJS__"
-ExecStart=__NODEJS_DIR__/node . --conf ./config.json5
+ExecStart=__NODEJS_DIR__/node ./build/main.js --conf ./config.json5
 TimeoutStopSec=20
 KillMode=mixed
 Restart=always
