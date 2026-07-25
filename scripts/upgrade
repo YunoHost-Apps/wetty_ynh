@@ -48,9 +48,9 @@ yunohost service add "$app" --description="Wetty Web Terminal service" --log="/v
 ynh_config_add_logrotate
 
 #=================================================
-# BUILD YARN DEPENDENCIES
+# BUILD PNPM DEPENDENCIES
 #=================================================
-ynh_script_progression "Rebuilding Yarn dependencies..."
+ynh_script_progression "Rebuilding dependencies..."
 
 pushd "$install_dir"
 	ynh_hide_warnings corepack enable

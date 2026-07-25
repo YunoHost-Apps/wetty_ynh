@@ -41,9 +41,9 @@ ynh_config_add_logrotate
 
 
 #=================================================
-# BUILD YARN DEPENDENCIES
+# BUILD PNPM DEPENDENCIES
 #=================================================
-ynh_script_progression "Building Yarn dependencies... This may take several minutes for a first install."
+ynh_script_progression "Building dependencies... This may take several minutes for a first install."
 
 pushd "$install_dir"
 	ynh_hide_warnings corepack enable
