@@ -7,7 +7,7 @@ name = "Wetty"
 description.en = "Terminal in browser over http/https"
 description.fr = "Un terminal dans le navigateur sur http/https"
 
-version = "3.2.1~ynh1"
+version = "3.2.2~ynh1"
 
 maintainers = ["Salamandar"]
 
@@ -44,8 +44,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/butlerx/wetty/archive/refs/tags/v3.2.1.tar.gz"
-    sha256 = "b3bb519c3ac153dc81f6b9c6ad5b6b6f67ba2f456ab3b621a8642963d5f38f4b"
+    url = "https://github.com/butlerx/wetty/archive/refs/tags/v3.2.2.tar.gz"
+    sha256 = "6e4489f0e842370ccf5c4eecaab643803b2a9baec983d6642b1c2bdd4ae108a2"
     autoupdate.strategy = "latest_github_release"
 
     [resources.system_user]
