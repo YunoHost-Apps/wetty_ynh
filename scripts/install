@@ -47,8 +47,9 @@ ynh_script_progression "Building dependencies... This may take several minutes f
 
 pushd "$install_dir"
 	ynh_hide_warnings corepack enable
-	ynh_hide_warnings pnpm install --frozen-lockfile
-	ynh_hide_warnings pnpm run build
+	ynh_hide_warnings ynh_exec_as_app corepack prepare pnpm@9 --activate
+	ynh_hide_warnings ynh_exec_as_app pnpm install --frozen-lockfile
+	ynh_hide_warnings ynh_exec_as_app pnpm run build
 popd
 
 chown "$app:$app" "$install_dir"
