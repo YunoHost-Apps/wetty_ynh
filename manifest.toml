@@ -62,4 +62,4 @@ ram.runtime = "50M"
     packages = "make, build-essential, python3"
 
     [resources.nodejs]
-    version = "20"
+    version = "22"
