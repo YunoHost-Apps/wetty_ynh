@@ -17,7 +17,7 @@
     host:         '127.0.0.1',                         // address to listen on
     title:        'WeTTy - The Web Terminal Emulator', // Page title
     bypassHelmet: false,                               // Disable Helmet security checks
-    allowedOrigins: ['__DOMAIN__'],
+    allowedOrigins: ['https://__DOMAIN__'],
   },
 
   forceSSH: false,  // Force sshing to local machine over login if running as root
